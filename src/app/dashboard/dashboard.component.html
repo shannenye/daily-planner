@@ -1,0 +1,6 @@
+<div class="dashboard">
+    <app-table
+        [movies]="movies"
+        (drop)="drop.emit($event)"
+    ></app-table>
+</div>
