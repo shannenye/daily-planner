@@ -5,6 +5,7 @@ import {
     EventEmitter 
 } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { TicketDetail } from './interfaces';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +13,7 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-    @Input() movies: string[];
+    @Input() tickets: TicketDetail[];
+    @Output() submitSearch = new EventEmitter<string>();
     @Output() drop = new EventEmitter<CdkDragDrop<string[]>>();
 }

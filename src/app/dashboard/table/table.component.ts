@@ -5,6 +5,7 @@ import {
     EventEmitter 
 } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { TicketDetail } from '../interfaces';
 
 @Component({
     selector: 'app-table',
@@ -12,6 +13,6 @@ import { CdkDragDrop } from '@angular/cdk/drag-drop';
     styleUrls: ['./table.component.scss']
 })
 export class TableComponent {
-    @Input() movies: string[];
+    @Input() tickets: TicketDetail[];
     @Output() drop = new EventEmitter<CdkDragDrop<string[]>>();
 }

@@ -1,12 +1,170 @@
-export const moviesList: string[] = [
-    'Episode I - The Phantom Menace',
-    'Episode II - Attack of the Clones',
-    'Episode III - Revenge of the Sith',
-    'Episode IV - A New Hope',
-    'Episode V - The Empire Strikes Back',
-    'Episode VI - Return of the Jedi',
-    'Episode VII - The Force Awakens',
-    'Episode VIII - The Last Jedi',
-    'Episode IX – The Rise of Skywalker'
+import { TicketDetail, StageTypes } from './interfaces';
+
+export const ticketDataList: TicketDetail[] = [
+    {
+        title: 'Hire New Frontend Engineer',
+        assignee: {
+            id: 3,
+            firstName: 'Lead Frontend',
+            lastName: 'Engineer',
+            profilePic: {
+                url: 'lead-fe-icon.png',
+                alt: 'Lead Frontend Engineer Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.INITIATION,
+        priority: true
+    },
+    {
+        title: 'Resource Allocation',
+        assignee: {
+            id: 1,
+            firstName: 'Project',
+            lastName: 'Manager',
+            profilePic: {
+                url: 'project-manager-icon.png',
+                alt: 'Project Manager Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.PLANNING,
+        priority: false
+    },
+    {
+        title: 'Update Company Website',
+        assignee: {
+            id: 2,
+            firstName: 'Charles',
+            lastName: 'Wok',
+            profilePic: {
+                url: 'charles-icon.png',
+                alt: 'Charles Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.INITIATION,
+        priority: false
+    },
+    {
+        title: 'Complete Take-Home Project ',
+        assignee: {
+            id: 4,
+            firstName: 'Shannen',
+            lastName: 'Ye',
+            profilePic: {
+                url: 'shannen-icon.png',
+                alt: 'Shannen Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.EXECUTION,
+        priority: true
+    },
+    {
+        title: 'Add More Snacks To The Kitchen',
+        assignee: {
+            id: 2,
+            firstName: 'Charles',
+            lastName: 'Wok',
+            profilePic: {
+                url: 'charles-icon.png',
+                alt: 'Charles Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.PLANNING,
+        priority: true
+    },
+    {
+        title: 'Push Staging To Production',
+        assignee: {
+            id: 1,
+            firstName: 'Lead Frontend',
+            lastName: 'Engineer',
+            profilePic: {
+                url: 'lead-fe-icon.png',
+                alt: 'Lead Frontend Engineer Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.INITIATION,
+        priority: false
+    },
+    {
+        title: 'Finalize Project Scope',
+        assignee: {
+            id: 4,
+            firstName: 'Shannen',
+            lastName: 'Ye',
+            profilePic: {
+                url: 'shannen-icon.png',
+                alt: 'Shannen Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.EXECUTION,
+        priority: false
+    },
+    {
+        title: 'Estimate Project Tickets',
+        assignee: {
+            id: 1,
+            firstName: 'Project',
+            lastName: 'Manager',
+            profilePic: {
+                url: 'project-manager-icon.png',
+                alt: 'Project Manager Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.PLANNING,
+        priority: false
+    },
+    {
+        title: 'Refactor Project\'s Key Features',
+        assignee: {
+            id: 2,
+            firstName: 'Charles',
+            lastName: 'Wok',
+            profilePic: {
+                url: 'charles-icon.png',
+                alt: 'Charles Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.EXECUTION,
+        priority: false
+    },
+    {
+        title: 'Research 3rd Party Library',
+        assignee: {
+            id: 4,
+            firstName: 'Shannen',
+            lastName: 'Ye',
+            profilePic: {
+                url: 'shannen-icon.png',
+                alt: 'Shannen Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.INITIATION,
+        priority: false
+    },
+    {
+        title: 'Brainstorm New Features',
+        assignee: {
+            id: 1,
+            firstName: 'Project',
+            lastName: 'Manager',
+            profilePic: {
+                url: 'project-manager-icon.png',
+                alt: 'Project Manager Icon'
+            }
+        },
+        dueDate: new Date(),
+        stage: StageTypes.EXECUTION,
+        priority: true
+    }
 ];
 

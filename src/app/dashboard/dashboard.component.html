@@ -1,6 +1,11 @@
 <div class="dashboard">
+    <div class="dashboard__search">
+        <app-search
+            (submitSearch)="submitSearch.emit($event)"
+        ></app-search>
+    </div>
     <app-table
-        [movies]="movies"
+        [tickets]="tickets"
         (drop)="drop.emit($event)"
     ></app-table>
 </div>

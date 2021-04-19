@@ -1,0 +1,20 @@
+<div class="search-form">
+    <form 
+        class="search-form__container" 
+        autocomplete="off"
+        (ngSubmit)="submitForm.emit($event)"
+    >
+        <label class="search-form__placeholder-text">search {{ placeholderText }}</label>
+        <input 
+            class="search-form__input-box"
+            type="text"
+            placeholder="search {{ placeholderText }}">
+        <label class="form__submit" onclick="submitForm.emit()">
+            <img 
+                class="search-form__search-icon" 
+                src="assets/svgs/search.svg" 
+                alt="magnifying glass search icon"
+            >
+        </label>
+    </form>
+</div>

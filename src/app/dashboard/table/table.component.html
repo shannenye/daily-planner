@@ -1,6 +1,48 @@
-<div cdkDropList class="example-list" (cdkDropListDropped)="drop.emit($event)">
-    <div class="example-box" *ngFor="let movie of movies" cdkDrag>
-        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-        {{ movie }}
+<div class="table">
+    <div class="table__header-container">
+        <div class="table__header">
+            <h2 class="row__title">
+                issues
+            </h2>
+            <div class="row__container">
+                <div class="row__section">
+                    assignee
+                </div>
+                <div class="row__section">
+                    due date
+                </div>
+                <div class="row__section">
+                    stage
+                </div>
+                <div class="row__section">
+                    priority
+                </div>
+            </div>
+        </div>
+    </div>
+    <div cdkDropList class="table__container" (cdkDropListDropped)="drop.emit($event)">
+        <div class="row" *ngFor="let ticket of tickets" cdkDrag>
+            <div class="row-placeholder" *cdkDragPlaceholder></div>
+            <div class="row__title">
+                {{ ticket.title }}
+            </div>
+            <div class="row__container">
+                <div class="row__section">
+                    <app-profile-pic [image]="ticket.assignee.profilePic"></app-profile-pic>
+                </div>
+                <div class="row__section">
+                    <span class="row__">{{ ticket.dueDate | date: mediumDate }}</span>
+                </div>
+                <div class="row__section">
+                    <app-text-block
+                        [text]="ticket.stage"
+                    ></app-text-block>
+                </div>
+                <div class="row__section">
+                    <img class="flag" src="assets/svgs/{{ ticket.priority ? 'solid-flag' : 'flag'}}.svg">
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
