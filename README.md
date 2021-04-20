@@ -4,6 +4,8 @@
 
 -   Newest [Ngrx Documentation](https://ngrx.io/guide/store/reducers) shows an example of a reducer using `on` instead of switch cases. Interesting! Always improving and always changing, let's do it for this project too! I've only used switch cases in my current employment's projects so this is a fun change :)
 
+-   DevTools are added for better visibility if you want to see actions firing and state
+
 ### Extras
 
 [] Use an API that supports paging and implement pagination on the table

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { ticketDataList } from './data';
-import { TicketDetail } from './interfaces';
 import { Store, select } from '@ngrx/store';
-import { loadDashboard } from './dashboard.actions';
+import { loadDashboard, sortDashboardTickets } from './dashboard.actions';
 import { selectDashboardTicketsState } from './dashboard.reducer';
 
 @Component({
@@ -13,6 +11,7 @@ import { selectDashboardTicketsState } from './dashboard.reducer';
             [tickets]="tickets$ | async"
             (submitSearch)="submitSearch($event)"
             (drop)="drop($event)"
+            (sortBy)="sortBy($event)"
         ></app-dashboard>
     `
 })
@@ -33,5 +32,9 @@ export class DashboardContainer implements OnInit {
  
     drop(event: CdkDragDrop<string[]>) {
         // moveItemInArray(this.tickets, event.previousIndex, event.currentIndex);
+    }
+
+    sortBy(columnName: string) {
+        this.store.dispatch(sortDashboardTickets({ payload: columnName }));
     }
 }

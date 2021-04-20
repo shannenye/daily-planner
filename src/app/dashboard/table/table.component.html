@@ -5,16 +5,16 @@
                 issues
             </h2>
             <div class="row__container">
-                <div class="row__section">
+                <div class="row__section" (click)="sortBy.emit('assignee')">
                     assignee
                 </div>
-                <div class="row__section">
+                <div class="row__section" (click)="sortBy.emit('date')">
                     due date
                 </div>
-                <div class="row__section">
+                <div class="row__section" (click)="sortBy.emit('stage')">
                     stage
                 </div>
-                <div class="row__section">
+                <div class="row__section" (click)="sortBy.emit('priority')">
                     priority
                 </div>
             </div>

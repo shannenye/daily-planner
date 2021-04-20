@@ -16,4 +16,6 @@ export class DashboardComponent {
     @Input() tickets: TicketDetail[];
     @Output() submitSearch = new EventEmitter<string>();
     @Output() drop = new EventEmitter<CdkDragDrop<string[]>>();
+    @Output() sortBy = new EventEmitter<string>();
+
 }

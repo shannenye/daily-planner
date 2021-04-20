@@ -15,4 +15,5 @@ import { TicketDetail } from '../interfaces';
 export class TableComponent {
     @Input() tickets: TicketDetail[];
     @Output() drop = new EventEmitter<CdkDragDrop<string[]>>();
+    @Output() sortBy = new EventEmitter<string>();
 }

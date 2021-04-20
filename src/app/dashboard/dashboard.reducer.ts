@@ -3,14 +3,23 @@ import * as DashboardActions from './dashboard.actions';
 import { DashboardState } from './interfaces';
 
 export const initialState: DashboardState = {
-    tickets: []
+    tickets: [],
+    sortBy: null
 };
 
 export const reducer = createReducer(
     initialState,
     on(
         DashboardActions.loadDashboardSuccess, 
-        (state, { data }) => ({ ...state, tickets: data })
+        (state, { payload }) => ({ ...state, tickets: payload })
+    ),
+    on(
+        DashboardActions.sortDashboardTicketsSuccess,
+        (state, { payload }) => ({ 
+            ...state, 
+            tickets: payload.tickets,
+            sortBy: payload.sortBy
+        })
     )
 );
 
@@ -23,4 +32,9 @@ export const selectDashboardState = createFeatureSelector<DashboardState>('dashb
 export const selectDashboardTicketsState = createSelector(
     selectDashboardState,
     (state: DashboardState) => state.tickets
+);
+
+export const selectDashboardSortByState = createSelector(
+    selectDashboardState,
+    (state: DashboardState) => state.sortBy
 );

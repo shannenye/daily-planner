@@ -7,5 +7,6 @@
     <app-table
         [tickets]="tickets"
         (drop)="drop.emit($event)"
+        (sortBy)="sortBy.emit($event)"
     ></app-table>
 </div>

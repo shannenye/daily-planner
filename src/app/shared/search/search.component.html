@@ -9,7 +9,7 @@
             class="search-form__input-box"
             type="text"
             placeholder="search {{ placeholderText }}">
-        <label class="form__submit" onclick="submitForm.emit()">
+        <label class="form__submit" (click)="submitForm.emit()">
             <img 
                 class="search-form__search-icon" 
                 src="assets/svgs/search.svg" 

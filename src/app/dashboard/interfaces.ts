@@ -21,6 +21,17 @@ export interface TicketDetail {
     priority: boolean;
 }
 
+export interface SortBy {
+    columnName: string;
+    orderBy: boolean; // if true sort by ascending, false sort descending
+}
+
 export interface DashboardState {
     tickets: TicketDetail[] | [];
+    sortBy: SortBy | null;
 };
+
+export interface SortDashboardTicketsSuccessPayload {
+    tickets: TicketDetail[],
+    sortBy: SortBy
+}
