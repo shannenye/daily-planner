@@ -5,7 +5,7 @@ import {
     EventEmitter 
 } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { TicketDetail } from './interfaces';
+import { SortBy, TicketDetail } from './interfaces';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,8 +14,9 @@ import { TicketDetail } from './interfaces';
 })
 export class DashboardComponent {
     @Input() tickets: TicketDetail[];
+    @Input() sortBy: SortBy;
+    @Input() columnName: string[];
     @Output() submitSearch = new EventEmitter<string>();
     @Output() drop = new EventEmitter<CdkDragDrop<string[]>>();
-    @Output() sortBy = new EventEmitter<string>();
-
+    @Output() sortByColumnName = new EventEmitter<string>();
 }

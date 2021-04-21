@@ -6,6 +6,8 @@
 
 -   DevTools are added for better visibility if you want to see actions firing and state
 
+-   This project uses normalize scss for browser compatibility. Documentation can be found [here](https://github.com/JohnAlbin/normalize-scss)
+
 ### Extras
 
 [] Use an API that supports paging and implement pagination on the table

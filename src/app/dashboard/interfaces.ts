@@ -35,3 +35,8 @@ export interface SortDashboardTicketsSuccessPayload {
     tickets: TicketDetail[],
     sortBy: SortBy
 }
+
+export interface PreviousAndCurrentIdx {
+    previousIndex: number;
+    currentIndex: number;
+}

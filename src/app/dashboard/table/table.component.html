@@ -5,17 +5,9 @@
                 issues
             </h2>
             <div class="row__container">
-                <div class="row__section" (click)="sortBy.emit('assignee')">
-                    assignee
-                </div>
-                <div class="row__section" (click)="sortBy.emit('date')">
-                    due date
-                </div>
-                <div class="row__section" (click)="sortBy.emit('stage')">
-                    stage
-                </div>
-                <div class="row__section" (click)="sortBy.emit('priority')">
-                    priority
+                <div class="row__section" *ngFor="let name of columnName" (click)="sortByColumnName.emit(name)">
+                    {{ name }}
+                    <img class="{{sortBy?.columnName === name && sortBy?.orderBy ? 'row__section--rotate' : ''}}" src="assets/svgs/triangle.svg">
                 </div>
             </div>
         </div>
@@ -39,7 +31,7 @@
                     ></app-text-block>
                 </div>
                 <div class="row__section">
-                    <img class="flag" src="assets/svgs/{{ ticket.priority ? 'solid-flag' : 'flag'}}.svg">
+                    <img class="svg" src="assets/svgs/{{ ticket.priority ? 'solid-flag' : 'flag'}}.svg">
                 </div>
             </div>
         </div>

@@ -49,11 +49,18 @@
         padding: 0 15px;
         text-align: center;
         text-transform: capitalize;
+        display: flex;
+        align-items: center;
 
         img {
             width: 22px;
             height: auto;
             display: inline-block;
+        }
+
+        &--rotate {
+            -webkit-transform: rotateX(180deg);
+            transform: rotateX(180deg);
         }
     }
 }

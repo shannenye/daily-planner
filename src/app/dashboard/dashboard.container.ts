@@ -1,22 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Store, select } from '@ngrx/store';
-import { loadDashboard, sortDashboardTickets } from './dashboard.actions';
-import { selectDashboardTicketsState } from './dashboard.reducer';
+import { dropDashboardRow, loadDashboard, sortDashboardTickets } from './dashboard.actions';
+import { selectDashboardSortByState, selectDashboardTicketsState } from './dashboard.reducer';
+import { columnName } from './data';
+import { PreviousAndCurrentIdx, TicketDetail } from './interfaces';
 
 @Component({
     selector: 'app-dashboard-container',
     template: `
         <app-dashboard
             [tickets]="tickets$ | async"
+            [sortBy]="sortBy$ | async"
+            [columnName]="columnName"
             (submitSearch)="submitSearch($event)"
             (drop)="drop($event)"
-            (sortBy)="sortBy($event)"
+            (sortByColumnName)="sortByColumnName($event)"
         ></app-dashboard>
     `
 })
 export class DashboardContainer implements OnInit {
     tickets$ = this.store.pipe(select(selectDashboardTicketsState));
+    sortBy$ = this.store.pipe(select(selectDashboardSortByState));
+    columnName: string[] = columnName;
+
 
     constructor(
         private store: Store
@@ -31,10 +38,15 @@ export class DashboardContainer implements OnInit {
     }
  
     drop(event: CdkDragDrop<string[]>) {
-        // moveItemInArray(this.tickets, event.previousIndex, event.currentIndex);
+        const previousAndCurrentIdx: PreviousAndCurrentIdx = {
+            previousIndex: event.previousIndex,
+            currentIndex: event.currentIndex
+        }
+
+        this.store.dispatch(dropDashboardRow({ payload: previousAndCurrentIdx }));
     }
 
-    sortBy(columnName: string) {
+    sortByColumnName(columnName: string) {
         this.store.dispatch(sortDashboardTickets({ payload: columnName }));
     }
 }

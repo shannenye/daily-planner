@@ -1,3 +1,4 @@
+import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
@@ -54,7 +55,7 @@ export class DashboardEffects {
                         return sortAlphabeticalUtil(nameA, nameB);
                     })
                 }
-            } else if (action.payload === 'date') {
+            } else if (action.payload === 'due date') {
                 if (
                     sortBy
                     && sortBy.columnName === action.payload
@@ -120,6 +121,22 @@ export class DashboardEffects {
             } })
         }
     )));
+
+    dropDashboardRow$ = createEffect(() => this.actions$.pipe(
+        ofType(
+            fromDashboardActions.dropDashboardRow
+        ),
+        withLatestFrom(
+            this.store.pipe(select(fromDashboardReducer.selectDashboardTicketsState))
+        ),
+        map(([action, tickets]) => {
+            const updatedTickets = [...tickets];
+
+            moveItemInArray(updatedTickets, action.payload.previousIndex, action.payload.currentIndex);
+
+            return fromDashboardActions.loadDashboardSuccess({ payload: updatedTickets });
+        })
+    ));
 
     constructor(
         private store: Store,

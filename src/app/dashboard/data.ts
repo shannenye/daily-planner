@@ -1,5 +1,12 @@
 import { TicketDetail, StageTypes } from './interfaces';
 
+export const columnName: string[] = [
+    'assignee',
+    'due date',
+    'stage',
+    'priority'
+];
+
 export const ticketDataList: TicketDetail[] = [
     {
         title: 'Hire New Frontend Engineer',
@@ -12,7 +19,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Lead Frontend Engineer Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-04-30'),
         stage: StageTypes.INITIATION,
         priority: true
     },
@@ -27,7 +34,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Project Manager Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-05-29'),
         stage: StageTypes.PLANNING,
         priority: false
     },
@@ -42,7 +49,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Charles Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-05-29'),
         stage: StageTypes.INITIATION,
         priority: false
     },
@@ -57,7 +64,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Shannen Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-06-13'),
         stage: StageTypes.EXECUTION,
         priority: true
     },
@@ -72,7 +79,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Charles Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-05-28'),
         stage: StageTypes.PLANNING,
         priority: true
     },
@@ -87,7 +94,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Lead Frontend Engineer Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-05-11'),
         stage: StageTypes.INITIATION,
         priority: false
     },
@@ -102,7 +109,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Shannen Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-05-01'),
         stage: StageTypes.EXECUTION,
         priority: false
     },
@@ -117,7 +124,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Project Manager Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-05-19'),
         stage: StageTypes.PLANNING,
         priority: false
     },
@@ -132,7 +139,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Charles Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-08-06'),
         stage: StageTypes.EXECUTION,
         priority: false
     },
@@ -147,7 +154,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Shannen Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-05-19'),
         stage: StageTypes.INITIATION,
         priority: false
     },
@@ -162,7 +169,7 @@ export const ticketDataList: TicketDetail[] = [
                 alt: 'Project Manager Icon'
             }
         },
-        dueDate: new Date(),
+        dueDate: new Date('2021-04-30'),
         stage: StageTypes.EXECUTION,
         priority: true
     }
