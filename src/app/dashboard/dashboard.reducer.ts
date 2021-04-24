@@ -23,6 +23,7 @@ export const reducer = createReducer(
         DashboardActions.submitDashboardSearch,
         (state, { payload }) => ({
             ...state,
+            sortBy: initialState.sortBy,
             search: payload
         })
     ),
