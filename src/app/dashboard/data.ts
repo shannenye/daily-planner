@@ -69,7 +69,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: true
     },
     {
-        title: 'Add More Snacks To The Kitchen',
+        title: 'Update Kitchen Snacks',
         assignee: {
             id: 2,
             firstName: 'Charles',
@@ -159,7 +159,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: false
     },
     {
-        title: 'Brainstorm New Features',
+        title: 'Finalize New Features',
         assignee: {
             id: 1,
             firstName: 'Project',
@@ -170,7 +170,7 @@ export const ticketDataList: TicketDetail[] = [
             }
         },
         dueDate: new Date('2021-04-30'),
-        stage: StageTypes.EXECUTION,
+        stage: StageTypes.PLANNING,
         priority: true
     }
 ];

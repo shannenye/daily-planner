@@ -21,15 +21,35 @@ export const selectDashboardSearchState = createSelector(
 );
 
 export const selectDashboardSearchTickets = createSelector(
-    selectDashboardSearchState,
     selectDashboardTicketsState,
-    (search, tickets) => {
+    selectDashboardSearchState,
+    (tickets, search) => {
+        console.log('this is tickets: ', tickets)
+        console.log('this is search: ', search)
+        
+        if (search && tickets.length) {
+            const searchWords = search.toLowerCase().split(' ');
 
-        if (search) {
-            // ITERATE LOGIC HERE FOR SEARCH
-            return [];
+            const final = tickets.filter(ticket => {
+                let match = false;
+                
+                for (let word of searchWords) {
+                    if (ticket.title.toLowerCase().includes(word)) {
+                        console.log('matchingggg: ', word)
+                        match = true;
+                        break;
+                    }
+                }
+
+                if (match) return ticket;
+            });
+            console.log('this is a spec: ', final)
+
+
+
+            return final;
         } else {
-            return [...tickets];
+            return tickets;
         }
     }
 );
@@ -38,7 +58,6 @@ export const selectdDashboardSearchSortedTicketsState = createSelector(
     selectDashboardSearchTickets,
     selectDashboardSortByState,
     (stateTickets, stateSortBy) => {
-
         if (stateSortBy) {
             const sortedTickets = [ ...stateTickets ];
             if (stateSortBy.columnName === 'assignee') {

@@ -123,16 +123,86 @@ describe('Dashboard Selectors', () => {
         expect(result).toEqual([]);
     });
 
-    // it('Should return a list of tickets meeting search criteria' , () => {
-    //     dashboardMockState.search = '';
+    it('Should return a list of tickets meeting search criteria' , () => {
+        const searchMockState1 = '#2';
+        const result1 = selectDashboardSearchTickets.projector(
+            dashboardMockState.tickets,
+            searchMockState1
+        );
+        const expected1 = [
+            {
+                title: 'Fake Title #2',
+                assignee: {
+                    id: 2,
+                    firstName: 'FakeFirstName2',
+                    lastName: 'FakeLastName2',
+                    profilePic: {
+                        url: 'default-icon.png',
+                        alt: 'default icon silhouette'
+                    }
+                },
+                dueDate: new Date('2021-05-29'),
+                stage: StageTypes.EXECUTION,
+                priority: false
+            },
+        ];
 
-    //     const result = selectDashboardSearchTickets.projector(
-    //         dashboardMockState.tickets,
-    //         dashboardMockState.search
-    //     );
+        const searchMockState2 = 'Fake Title';
+        const result2 = selectDashboardSearchTickets.projector(
+            dashboardMockState.tickets,
+            searchMockState2
+        );
+        const expected2 = [
+            {
+                title: 'Fake Title #1',
+                assignee: {
+                    id: 1,
+                    firstName: 'FakeFirstName1',
+                    lastName: 'FakeLastName1',
+                    profilePic: {
+                        url: 'default-icon.png',
+                        alt: 'default icon silhouette'
+                    }
+                },
+                dueDate: new Date('2021-04-30'),
+                stage: StageTypes.INITIATION,
+                priority: true
+            },
+            {
+                title: 'Fake Title #2',
+                assignee: {
+                    id: 2,
+                    firstName: 'FakeFirstName2',
+                    lastName: 'FakeLastName2',
+                    profilePic: {
+                        url: 'default-icon.png',
+                        alt: 'default icon silhouette'
+                    }
+                },
+                dueDate: new Date('2021-05-29'),
+                stage: StageTypes.EXECUTION,
+                priority: false
+            },
+            {
+                title: 'Fake Title #3',
+                assignee: {
+                    id: 3,
+                    firstName: 'FakeFirstName3',
+                    lastName: 'FakeLastName3',
+                    profilePic: {
+                        url: 'default-icon.png',
+                        alt: 'default icon silhouette'
+                    }
+                },
+                dueDate: new Date('2021-05-13'),
+                stage: StageTypes.PLANNING,
+                priority: false
+            }
+        ];
 
-    //     expect(result).toEqual([]);
-    // });
+        expect(result1).toEqual(expected1);
+        expect(result2).toEqual(expected2);
+    });
 
     describe('selectdDashboardSearchSortedTicketsState should return a list of correctly sorted tickets', () => {
         it('Should sort by assignee lastname then firstname and order alphabetically ascending (A -> Z)', () => {
@@ -648,5 +718,4 @@ describe('Dashboard Selectors', () => {
             expect(result[1].priority).toBe(false);
         });
     });
-
 });
