@@ -1,7 +1,8 @@
 <div class="dashboard">
     <div class="dashboard__search">
         <app-search
-            (submitSearch)="submitSearch.emit($event)"
+            [searchForm]="searchForm"
+            (submitSearch)="submitSearch.emit()"
         ></app-search>
     </div>
     <app-table

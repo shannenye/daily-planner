@@ -2,14 +2,17 @@
     <form 
         class="search-form__container" 
         autocomplete="off"
-        (ngSubmit)="submitForm.emit($event)"
+        [formGroup]="searchForm"
+        (ngSubmit)="submitSearch.emit()"
     >
         <label class="search-form__placeholder-text">search {{ placeholderText }}</label>
         <input 
             class="search-form__input-box"
+            placeholder="search {{ placeholderText }}"
             type="text"
-            placeholder="search {{ placeholderText }}">
-        <label class="form__submit" (click)="submitForm.emit()">
+            formControlName="searchInputText"
+        >
+        <label class="form__submit" (click)="submitSearch.emit()">
             <img 
                 class="search-form__search-icon" 
                 src="assets/svgs/search.svg" 

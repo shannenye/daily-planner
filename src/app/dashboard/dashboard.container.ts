@@ -1,10 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Store, select } from '@ngrx/store';
-import { dropDashboardRow, loadDashboard, sortDashboardTickets } from './dashboard.actions';
-import { selectDashboardSortByState, selectDashboardTicketsState } from './dashboard.reducer';
+import { Observable } from 'rxjs';
+import { 
+    dropDashboardRow, 
+    loadDashboard, 
+    sortDashboardTickets, 
+    submitDashboardSearch
+} from './dashboard.actions';
+import { selectDashboardSortByState, selectdDashboardSearchSortedTicketsState } from './dashboard.reducer';
 import { columnName } from './data';
-import { PreviousAndCurrentIdx, TicketDetail } from './interfaces';
+import { 
+    PreviousAndCurrentIdx, 
+    TicketDetail, 
+    SortBy 
+} from './interfaces';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-dashboard-container',
@@ -12,29 +23,38 @@ import { PreviousAndCurrentIdx, TicketDetail } from './interfaces';
         <app-dashboard
             [tickets]="tickets$ | async"
             [sortBy]="sortBy$ | async"
+            [searchForm]="searchForm"
             [columnName]="columnName"
-            (submitSearch)="submitSearch($event)"
+            (submitSearch)="submitSearch()"
             (drop)="drop($event)"
             (sortByColumnName)="sortByColumnName($event)"
         ></app-dashboard>
     `
 })
 export class DashboardContainer implements OnInit {
-    tickets$ = this.store.pipe(select(selectDashboardTicketsState));
-    sortBy$ = this.store.pipe(select(selectDashboardSortByState));
+    tickets$: Observable<TicketDetail[] | []> = this.store.pipe(select(selectdDashboardSearchSortedTicketsState));
+    sortBy$: Observable<SortBy> = this.store.pipe(select(selectDashboardSortByState));
+    searchForm: FormGroup = new FormGroup({
+        searchInputText: new FormControl('')
+    })
     columnName: string[] = columnName;
-
 
     constructor(
         private store: Store
     ) {}
 
     ngOnInit() {
-        this.store.dispatch(loadDashboard());
+        this.store.dispatch(
+            loadDashboard()
+        );
     }
 
-    submitSearch(event: string) {
-        console.log('submitSearch: ', event);
+    submitSearch() {
+        this.store.dispatch(
+            submitDashboardSearch({ 
+                payload: this.searchForm.value.searchInputText 
+            })
+        );
     }
  
     drop(event: CdkDragDrop<string[]>) {
@@ -43,10 +63,18 @@ export class DashboardContainer implements OnInit {
             currentIndex: event.currentIndex
         }
 
-        this.store.dispatch(dropDashboardRow({ payload: previousAndCurrentIdx }));
+        this.store.dispatch(
+            dropDashboardRow({ 
+                payload: previousAndCurrentIdx 
+            })
+        );
     }
 
     sortByColumnName(columnName: string) {
-        this.store.dispatch(sortDashboardTickets({ payload: columnName }));
+        this.store.dispatch(
+            sortDashboardTickets({ 
+                payload: columnName 
+            })
+        );
     }
 }

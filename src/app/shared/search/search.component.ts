@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-
+import { FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-search',
@@ -8,5 +8,6 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SearchComponent {
     @Input() placeholderText?: string;
-    @Output() submitForm = new EventEmitter<string>();
+    @Input() searchForm: FormGroup;
+    @Output() submitSearch = new EventEmitter();
 }
