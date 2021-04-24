@@ -7,12 +7,12 @@
             <div class="row__container">
                 <div class="row__section" *ngFor="let name of columnName" (click)="sortByColumnName.emit(name)">
                     {{ name }}
-                    <img class="{{sortBy?.columnName === name && sortBy?.orderBy ? 'row__section--rotate' : ''}}" src="assets/svgs/triangle.svg">
+                    <img class="{{ sortBy?.columnName === name && sortBy?.orderBy ? 'row__section--rotate' : '' }}" src="assets/svgs/triangle.svg">
                 </div>
             </div>
         </div>
     </div>
-    <div cdkDropList class="table__container" (cdkDropListDropped)="drop.emit($event)">
+    <div *ngIf="tickets && tickets.length; else showEmptyState" cdkDropList class="table__container" (cdkDropListDropped)="drop.emit($event)">
         <div class="row" *ngFor="let ticket of tickets" cdkDrag>
             <div class="row-placeholder" *cdkDragPlaceholder></div>
             <div class="row__title">
@@ -36,5 +36,11 @@
             </div>
         </div>
     </div>
+    <ng-template #showEmptyState>
+        <div class="table__empty-state">
+            Sorry, there are no tickets to show.
+        </div>
+    </ng-template>
 </div>
+
 

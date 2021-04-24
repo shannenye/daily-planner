@@ -21,6 +21,13 @@
         border-radius: 4px;
         overflow: hidden;
     }
+
+    &__empty-state {
+        text-align: center;
+        padding: 20px 0;
+        margin: 50px 0;
+        background-color: #b9bec7;
+    }
 }
 
 .row {
