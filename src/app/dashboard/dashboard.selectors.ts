@@ -24,9 +24,6 @@ export const selectDashboardSearchTickets = createSelector(
     selectDashboardTicketsState,
     selectDashboardSearchState,
     (tickets, search) => {
-        console.log('this is tickets: ', tickets)
-        console.log('this is search: ', search)
-        
         if (search && tickets.length) {
             const searchWords = search.toLowerCase().split(' ');
 
@@ -35,7 +32,6 @@ export const selectDashboardSearchTickets = createSelector(
                 
                 for (let word of searchWords) {
                     if (ticket.title.toLowerCase().includes(word)) {
-                        console.log('matchingggg: ', word)
                         match = true;
                         break;
                     }
@@ -43,10 +39,7 @@ export const selectDashboardSearchTickets = createSelector(
 
                 if (match) return ticket;
             });
-            console.log('this is a spec: ', final)
-
-
-
+            
             return final;
         } else {
             return tickets;

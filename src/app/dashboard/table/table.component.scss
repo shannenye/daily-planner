@@ -29,6 +29,14 @@
         margin: 50px 0;
         background-color: #b9bec7;
     }
+
+    &__gif {
+        width: 200px;
+        height: auto;
+        margin: 0 auto;
+        padding-top: 30px;
+        display: flex;
+    }
 }
 
 .row {
