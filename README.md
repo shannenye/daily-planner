@@ -8,15 +8,17 @@
 
 -   This project uses normalize scss for browser compatibility. Documentation can be found [here](https://github.com/JohnAlbin/normalize-scss)
 
+-   Project requirements for searching and sorting are supposed to be done locally, therefore you can find the implementation as selectors in the `dashboard.selectors.ts` file
+
 ### Extras
 
-[] Use an API that supports paging and implement pagination on the table
+-   [] Use an API that supports paging and implement pagination on the table
 
-[*] Style up the table with SCSS to make it look pretty
+-   [x] Style up the table with SCSS to make it look pretty
 
-[] Setup continuous deployment of the app with a CI server
+-   [] Setup continuous deployment of the app with a CI server
 
-[] Manually resize the columns with the mouse
+-   [] Manually resize the columns with the mouse
 
 ### Running/Testing Locally
 
