@@ -1,3 +1,9 @@
-<div class="profile-pic" >
+<div *ngIf="image && image.alt; else defaultProfilePic" class="profile-pic" >
     <img src="assets/profile-icons/{{ image.url }}" alt="{{ image.alt }}">
 </div>
+
+<ng-template #defaultProfilePic>
+    <div class="profile-pic" >
+        <img src="assets/profile-icons/default-icon.png" alt="default icon silhouette">
+    </div>
+</ng-template>
