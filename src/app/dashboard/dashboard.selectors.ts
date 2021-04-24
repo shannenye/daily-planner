@@ -27,7 +27,7 @@ export const selectDashboardSearchTickets = createSelector(
         if (search && tickets.length) {
             const searchWords = search.toLowerCase().split(' ');
 
-            const final = tickets.filter(ticket => {
+            return tickets.filter(ticket => {
                 let match = false;
                 
                 for (let word of searchWords) {
@@ -39,8 +39,6 @@ export const selectDashboardSearchTickets = createSelector(
 
                 if (match) return ticket;
             });
-            
-            return final;
         } else {
             return tickets;
         }
