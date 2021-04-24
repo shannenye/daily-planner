@@ -12,19 +12,19 @@ export const loadDashboardSuccess = createAction(
     props<{ payload: TicketDetail[] }>()
 );
 
-// export const loadDashboardFailure = createAction('[Dashboard] Load Dashboard Failure');
+export const loadDashboardFailure = createAction('[Dashboard] Load Dashboard Failure');
 
 export const sortDashboardTickets = createAction(
     '[Dashboard] Sort Dashboard Tickets',
     props<{ payload: string }>()
 );
 
-export const sortDashboardTicketsSuccess = createAction(
-    '[Dashboard] Sort Dashboard Tickets Success',
-    props<{ payload: SortDashboardTicketsSuccessPayload }>()
-)
-
 export const dropDashboardRow = createAction(
     '[Dashboard] Drop Dashboard Row',
     props<{ payload: PreviousAndCurrentIdx }>()
+);
+
+export const submitDashboardSearch = createAction(
+    '[Dashboard] Submit Dashboard Search',
+    props<{ payload: string}>()
 )
