@@ -6,7 +6,7 @@ import {
     selectDashboardSearchState,
     selectDashboardSearchTickets,
     selectdDashboardSearchSortedTicketsState
-} from './dashboard.reducer';
+} from './dashboard.selectors';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardState, SortBy, StageTypes } from './interfaces';
 

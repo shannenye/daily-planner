@@ -5,6 +5,7 @@ import {
     EventEmitter 
 } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
+
 import { SortBy, TicketDetail } from '../interfaces';
 
 @Component({

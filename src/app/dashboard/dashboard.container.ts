@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+
+import { 
+    PreviousAndCurrentIdx, 
+    TicketDetail, 
+    SortBy 
+} from './interfaces';
+import { selectDashboardSortByState, selectdDashboardSearchSortedTicketsState } from './dashboard.selectors';
 import { 
     dropDashboardRow, 
     loadDashboard, 
     sortDashboardTickets, 
     submitDashboardSearch
 } from './dashboard.actions';
-import { selectDashboardSortByState, selectdDashboardSearchSortedTicketsState } from './dashboard.reducer';
+
 import { columnName } from './data';
-import { 
-    PreviousAndCurrentIdx, 
-    TicketDetail, 
-    SortBy 
-} from './interfaces';
-import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-dashboard-container',
@@ -32,8 +34,12 @@ import { FormControl, FormGroup } from '@angular/forms';
     `
 })
 export class DashboardContainer implements OnInit {
-    tickets$: Observable<TicketDetail[] | []> = this.store.pipe(select(selectdDashboardSearchSortedTicketsState));
-    sortBy$: Observable<SortBy> = this.store.pipe(select(selectDashboardSortByState));
+    tickets$: Observable<TicketDetail[] | []> = this.store.pipe(
+        select(selectdDashboardSearchSortedTicketsState)
+    );
+    sortBy$: Observable<SortBy> = this.store.pipe(
+        select(selectDashboardSortByState)
+    );
     searchForm: FormGroup = new FormGroup({
         searchInputText: new FormControl('')
     })

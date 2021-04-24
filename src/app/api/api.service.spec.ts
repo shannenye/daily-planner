@@ -1,7 +1,8 @@
 import { TestBed } from '@angular/core/testing';
-import { ticketDataList } from '../dashboard/data';
 
+import { ticketDataList } from '../dashboard/data';
 import { ApiService } from './api.service';
+
 
 describe('ApiService', () => {
     let service: ApiService;

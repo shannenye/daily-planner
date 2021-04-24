@@ -5,8 +5,9 @@ import {
     EventEmitter 
 } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { SortBy, TicketDetail } from './interfaces';
 import { FormGroup } from '@angular/forms';
+
+import { SortBy, TicketDetail } from './interfaces';
 
 @Component({
   selector: 'app-dashboard',

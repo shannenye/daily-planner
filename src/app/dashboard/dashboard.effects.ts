@@ -4,9 +4,10 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { catchError, map, withLatestFrom } from 'rxjs/operators';
+
 import { ApiService } from '../api/api.service';
+import * as fromDashboardSelector from './dashboard.selectors';
 import * as fromDashboardActions from './dashboard.actions';
-import * as fromDashboardReducer from './dashboard.reducer';
 
 @Injectable()
 export class DashboardEffects {
@@ -31,7 +32,7 @@ export class DashboardEffects {
         ),
         withLatestFrom(
             this.store.pipe(
-                select(fromDashboardReducer.selectDashboardTicketsState)
+                select(fromDashboardSelector.selectDashboardTicketsState)
             )
         ),
         map(([ action, tickets ]) => {
