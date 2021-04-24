@@ -13,7 +13,7 @@ import { SortBy, TicketDetail } from '../interfaces';
     styleUrls: ['./table.component.scss']
 })
 export class TableComponent {
-    @Input() tickets: TicketDetail[];
+    @Input() tickets: TicketDetail[] | [];
     @Input() sortBy: SortBy;
     @Input() columnName: string[];
     @Output() drop = new EventEmitter<CdkDragDrop<string[]>>();

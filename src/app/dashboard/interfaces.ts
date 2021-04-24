@@ -28,7 +28,9 @@ export interface SortBy {
 
 export interface DashboardState {
     tickets: TicketDetail[] | [];
-    sortBy: SortBy | null;
+    sortBy: SortBy;
+    search: string;
+    errorState: string;
 };
 
 export interface SortDashboardTicketsSuccessPayload {
