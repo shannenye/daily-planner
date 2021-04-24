@@ -1,5 +1,7 @@
 # DailyPlanner
 
+<img src="https://github.com/shannenye/daily-planner/blob/main/src/assets/gifs/demo-mini.gif" width="500" height="auto" />
+
 -   This project uses lazy loading for modules. By default NgModules are eager loaded which can cause large bundle sizes and load times. As this is a small project eager loading would normally be fine. However in the long run and in the real world there can be hundreds of rows which would negatively effect this app. Documentation for lazy loading can be found on the [Angular Docs](https://angular.io/guide/lazy-loading-ngmodules)
 
 -   Newest [Ngrx Documentation](https://ngrx.io/guide/store/reducers) shows an example of a reducer using `on` instead of switch cases. Interesting! Always improving and always changing, let's do it for this project too! I've only used switch cases in my current employment's projects so this is a fun change :)
