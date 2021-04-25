@@ -8,7 +8,12 @@ import {
     selectdDashboardSearchSortedTicketsState
 } from './dashboard.selectors';
 import { DashboardComponent } from './dashboard.component';
-import { DashboardState, SortBy, StageTypes } from './interfaces';
+import { 
+    DashboardState, 
+    SortBy, 
+    StageTypes, 
+    TicketDetail 
+} from './interfaces';
 
 describe('DashboardComponent', () => {
     let component: DashboardComponent;
@@ -36,6 +41,7 @@ describe('Dashboard Selectors', () => {
     const dashboardMockState: DashboardState = {
         tickets: [
             {
+                id: 1,
                 title: 'Fake Title #1',
                 assignee: {
                     id: 1,
@@ -51,6 +57,7 @@ describe('Dashboard Selectors', () => {
                 priority: true
             },
             {
+                id: 2,
                 title: 'Fake Title #2',
                 assignee: {
                     id: 2,
@@ -66,6 +73,7 @@ describe('Dashboard Selectors', () => {
                 priority: false
             },
             {
+                id: 3,
                 title: 'Fake Title #3',
                 assignee: {
                     id: 3,
@@ -129,8 +137,9 @@ describe('Dashboard Selectors', () => {
             dashboardMockState.tickets,
             searchMockState1
         );
-        const expected1 = [
+        const expected1: TicketDetail[] = [
             {
+                id: 2,
                 title: 'Fake Title #2',
                 assignee: {
                     id: 2,
@@ -152,8 +161,9 @@ describe('Dashboard Selectors', () => {
             dashboardMockState.tickets,
             searchMockState2
         );
-        const expected2 = [
+        const expected2: TicketDetail[] = [
             {
+                id: 1,
                 title: 'Fake Title #1',
                 assignee: {
                     id: 1,
@@ -169,6 +179,7 @@ describe('Dashboard Selectors', () => {
                 priority: true
             },
             {
+                id: 2,
                 title: 'Fake Title #2',
                 assignee: {
                     id: 2,
@@ -184,6 +195,7 @@ describe('Dashboard Selectors', () => {
                 priority: false
             },
             {
+                id: 3,
                 title: 'Fake Title #3',
                 assignee: {
                     id: 3,
@@ -216,8 +228,9 @@ describe('Dashboard Selectors', () => {
                 sortByMockState
             );
 
-            const expected = [
+            const expected: TicketDetail[] = [
                 {
+                    id: 1,
                     title: 'Fake Title #1',
                     assignee: {
                         id: 1,
@@ -233,6 +246,7 @@ describe('Dashboard Selectors', () => {
                     priority: true
                 },
                 {
+                    id: 2,
                     title: 'Fake Title #2',
                     assignee: {
                         id: 2,
@@ -248,6 +262,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 },
                 {
+                    id: 3,
                     title: 'Fake Title #3',
                     assignee: {
                         id: 3,
@@ -280,8 +295,9 @@ describe('Dashboard Selectors', () => {
                 sortByMockState
             );
 
-            const expected = [
+            const expected: TicketDetail[] = [
                 {
+                    id: 3,
                     title: 'Fake Title #3',
                     assignee: {
                         id: 3,
@@ -297,6 +313,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 },
                 {
+                    id: 2,
                     title: 'Fake Title #2',
                     assignee: {
                         id: 2,
@@ -312,6 +329,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 },
                 {
+                    id: 1,
                     title: 'Fake Title #1',
                     assignee: {
                         id: 1,
@@ -344,8 +362,9 @@ describe('Dashboard Selectors', () => {
                 sortByMockState
             );
 
-            const expected = [
+            const expected: TicketDetail[] = [
                 {
+                    id: 1,
                     title: 'Fake Title #1',
                     assignee: {
                         id: 1,
@@ -361,6 +380,7 @@ describe('Dashboard Selectors', () => {
                     priority: true
                 },
                 {
+                    id: 3,
                     title: 'Fake Title #3',
                     assignee: {
                         id: 3,
@@ -376,6 +396,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 },
                 {
+                    id: 2,
                     title: 'Fake Title #2',
                     assignee: {
                         id: 2,
@@ -408,8 +429,9 @@ describe('Dashboard Selectors', () => {
                 sortByMockState
             );
 
-            const expected = [
+            const expected: TicketDetail[] = [
                 {
+                    id: 2,
                     title: 'Fake Title #2',
                     assignee: {
                         id: 2,
@@ -425,6 +447,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 }, 
                 {
+                    id: 3,
                     title: 'Fake Title #3',
                     assignee: {
                         id: 3,
@@ -440,6 +463,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 }, 
                 {
+                    id: 1,
                     title: 'Fake Title #1',
                     assignee: {
                         id: 1,
@@ -472,8 +496,9 @@ describe('Dashboard Selectors', () => {
                 sortByMockState
             );
 
-            const expected = [
+            const expected: TicketDetail[] = [
                 {
+                    id: 2,
                     title: 'Fake Title #2',
                     assignee: {
                         id: 2,
@@ -489,6 +514,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 }, 
                 {
+                    id: 1,
                     title: 'Fake Title #1',
                     assignee: {
                         id: 1,
@@ -504,6 +530,7 @@ describe('Dashboard Selectors', () => {
                     priority: true
                 },
                 {
+                    id: 3,
                     title: 'Fake Title #3',
                     assignee: {
                         id: 3,
@@ -538,6 +565,7 @@ describe('Dashboard Selectors', () => {
 
             const expected = [
                 {
+                    id: 3,
                     title: 'Fake Title #3',
                     assignee: {
                         id: 3,
@@ -553,6 +581,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 }, 
                 {
+                    id: 1,
                     title: 'Fake Title #1',
                     assignee: {
                         id: 1,
@@ -568,6 +597,7 @@ describe('Dashboard Selectors', () => {
                     priority: true
                 },
                 {
+                    id: 2,
                     title: 'Fake Title #2',
                     assignee: {
                         id: 2,
@@ -601,8 +631,9 @@ describe('Dashboard Selectors', () => {
                 sortByMockState
             );
 
-            const expected = [
+            const expected: TicketDetail[] = [
                 {
+                    id: 1,
                     title: 'Fake Title #1',
                     assignee: {
                         id: 1,
@@ -618,6 +649,7 @@ describe('Dashboard Selectors', () => {
                     priority: true
                 },
                 {
+                    id: 2,
                     title: 'Fake Title #2',
                     assignee: {
                         id: 2,
@@ -633,6 +665,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 },
                 {
+                    id: 3,
                     title: 'Fake Title #3',
                     assignee: {
                         id: 3,
@@ -665,8 +698,9 @@ describe('Dashboard Selectors', () => {
                 sortByMockState
             );
 
-            const expected = [
+            const expected: TicketDetail[] = [
                 {
+                    id: 2,
                     title: 'Fake Title #2',
                     assignee: {
                         id: 2,
@@ -682,6 +716,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 },
                 {
+                    id: 3,
                     title: 'Fake Title #3',
                     assignee: {
                         id: 3,
@@ -697,6 +732,7 @@ describe('Dashboard Selectors', () => {
                     priority: false
                 },
                 {
+                    id: 1,
                     title: 'Fake Title #1',
                     assignee: {
                         id: 1,

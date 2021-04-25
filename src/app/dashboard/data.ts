@@ -9,6 +9,7 @@ export const columnName: string[] = [
 
 export const ticketDataList: TicketDetail[] = [
     {
+        id: 1,
         title: 'Hire New Frontend Engineer',
         assignee: {
             id: 3,
@@ -24,6 +25,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: true
     },
     {
+        id: 2,
         title: 'Resource Allocation',
         assignee: {
             id: 1,
@@ -39,6 +41,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: false
     },
     {
+        id: 3,
         title: 'Update Company Website',
         assignee: {
             id: 2,
@@ -54,6 +57,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: false
     },
     {
+        id: 4,
         title: 'Complete Take-Home Project ',
         assignee: {
             id: 4,
@@ -69,6 +73,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: true
     },
     {
+        id: 5,
         title: 'Update Kitchen Snacks',
         assignee: {
             id: 2,
@@ -84,6 +89,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: true
     },
     {
+        id: 6,
         title: 'Push Staging To Production',
         assignee: {
             id: 1,
@@ -99,6 +105,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: false
     },
     {
+        id: 7,
         title: 'Finalize Project Scope',
         assignee: {
             id: 4,
@@ -114,6 +121,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: false
     },
     {
+        id: 8,
         title: 'Estimate Project Tickets',
         assignee: {
             id: 1,
@@ -129,6 +137,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: false
     },
     {
+        id: 9,
         title: 'Refactor Project\'s Key Features',
         assignee: {
             id: 2,
@@ -144,6 +153,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: false
     },
     {
+        id: 10,
         title: 'Research 3rd Party Library',
         assignee: {
             id: 4,
@@ -159,6 +169,7 @@ export const ticketDataList: TicketDetail[] = [
         priority: false
     },
     {
+        id: 11,
         title: 'Finalize New Features',
         assignee: {
             id: 1,

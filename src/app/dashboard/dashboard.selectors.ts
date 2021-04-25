@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { sortAlphabeticalUtil } from '../utils/sort';
-import { DashboardState } from './interfaces';
+import { DashboardState, TicketDetail } from './interfaces';
 
 export const selectDashboardState = createFeatureSelector<DashboardState>('dashboard');
 
@@ -26,8 +26,7 @@ export const selectDashboardSearchTickets = createSelector(
     (tickets, search) => {
         if (search && tickets.length) {
             const searchWords = search.toLowerCase().split(' ');
-
-            return tickets.filter(ticket => {
+            const filteredTickets: TicketDetail[] =  tickets.filter((ticket: TicketDetail) => {
                 let match = false;
                 
                 for (let word of searchWords) {
@@ -39,6 +38,8 @@ export const selectDashboardSearchTickets = createSelector(
 
                 if (match) return ticket;
             });
+            
+            return filteredTickets;
         } else {
             return tickets;
         }

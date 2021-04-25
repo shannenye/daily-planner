@@ -22,4 +22,5 @@ export class DashboardComponent {
     @Output() submitSearch = new EventEmitter();
     @Output() drop = new EventEmitter<CdkDragDrop<string[]>>();
     @Output() sortByColumnName = new EventEmitter<string>();
+    @Output() toggleTicketPriority = new EventEmitter<number>();
 }

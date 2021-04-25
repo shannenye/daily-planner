@@ -31,7 +31,11 @@
                     ></app-text-block>
                 </div>
                 <div class="row__section">
-                    <img class="svg" src="assets/svgs/{{ ticket.priority ? 'solid-flag' : 'flag'}}.svg">
+                    <img 
+                        class="svg" 
+                        src="assets/svgs/{{ ticket.priority ? 'solid-flag' : 'flag'}}.svg" 
+                        (click)="toggleTicketPriority.emit(ticket.id)"
+                    >
                 </div>
             </div>
         </div>

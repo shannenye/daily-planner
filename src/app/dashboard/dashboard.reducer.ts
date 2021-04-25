@@ -29,12 +29,27 @@ export const reducer = createReducer(
     ),
     on(
         DashboardActions.sortDashboardTickets,
-        (state, { payload}) => ({
+        (state, { payload }) => ({
             ...state,
             sortBy: {
                 columnName: payload,
                 orderBy: state.sortBy.columnName === payload ? !state.sortBy.orderBy : false
             }
+        })
+    ),
+    on(
+        DashboardActions.toggleDashboardTicketPriority,
+        (state, { payload }) => ({
+            ...state,
+            tickets: [...state.tickets].map(ticket => {
+                if (ticket.id === payload) {
+                    return {
+                        ...ticket,
+                        priority: !ticket.priority
+                    }
+                }
+                return ticket;
+            })
         })
     ),
     on(

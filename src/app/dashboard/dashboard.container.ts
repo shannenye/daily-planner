@@ -14,7 +14,8 @@ import {
     dropDashboardRow, 
     loadDashboard, 
     sortDashboardTickets, 
-    submitDashboardSearch
+    submitDashboardSearch,
+    toggleDashboardTicketPriority
 } from './dashboard.actions';
 
 import { columnName } from './data';
@@ -30,6 +31,7 @@ import { columnName } from './data';
             (submitSearch)="submitSearch()"
             (drop)="drop($event)"
             (sortByColumnName)="sortByColumnName($event)"
+            (toggleTicketPriority)="toggleTicketPriority($event)"
         ></app-dashboard>
     `
 })
@@ -80,6 +82,14 @@ export class DashboardContainer implements OnInit {
         this.store.dispatch(
             sortDashboardTickets({ 
                 payload: columnName 
+            })
+        );
+    }
+
+    toggleTicketPriority(ticketId: number) {
+        this.store.dispatch(
+            toggleDashboardTicketPriority({
+                payload: ticketId
             })
         );
     }

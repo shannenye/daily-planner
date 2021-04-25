@@ -14,6 +14,7 @@ export interface Assignee {
 }
 
 export interface TicketDetail {
+    id: number;
     title: string;
     assignee: Assignee;
     dueDate: Date;

@@ -28,4 +28,9 @@ export const dropDashboardRow = createAction(
 export const submitDashboardSearch = createAction(
     '[Dashboard] Submit Dashboard Search',
     props<{ payload: string}>()
-)
+);
+
+export const toggleDashboardTicketPriority = createAction(
+    '[Dashboard] Toggle Dashboard Ticket Priority',
+    props<{ payload: number }>()
+);
