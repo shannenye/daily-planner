@@ -26,7 +26,7 @@
 
 -   User can drag and drop rows. Rows are contrained to its container
 
--   Search currently looks for ticket titles. User can search for part of a word or the whole word. For example `final` and `finalize` should both return two results for the ticket titles with the word `finalize`. User may also sort the table columns after the search as well. For best practices, existing sorts are cleared when a search is done. All feature above work after a search is made. Try it out!
+-   Search currently looks for ticket titles. User can search for part of a word or the whole word. For example `final` and `finalize` should both return two results for the ticket titles with the word `finalize`. User may also sort the table columns after the search as well and toggle priority too! For best practices, existing sorts are cleared when a search is entered. To clear the search and get back the default state of tickets, delete the search and press enter just like normal site searches. Try it out!
 
 ### Extras
 
