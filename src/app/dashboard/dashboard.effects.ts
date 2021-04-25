@@ -32,7 +32,7 @@ export class DashboardEffects {
         ),
         withLatestFrom(
             this.store.pipe(
-                select(fromDashboardSelector.selectDashboardTicketsState)
+                select(fromDashboardSelector.selectdDashboardSearchSortedTicketsState)
             )
         ),
         map(([ action, tickets ]) => {

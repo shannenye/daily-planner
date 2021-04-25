@@ -1,0 +1,26 @@
+<div *ngIf="ticket" class="row" cdkDrag>
+    <div class="row-placeholder" *cdkDragPlaceholder></div>
+    <div class="row__title">
+        {{ ticket.title }}
+    </div>
+    <div class="row__container">
+        <div class="row__section">
+            <app-profile-pic [image]="ticket.assignee.profilePic"></app-profile-pic>
+        </div>
+        <div class="row__section">
+            <span class="row__">{{ ticket.dueDate | date: 'MMM d, y' }}</span>
+        </div>
+        <div class="row__section">
+            <app-text-block
+                [text]="ticket.stage"
+            ></app-text-block>
+        </div>
+        <div class="row__section">
+            <img 
+                class="svg" 
+                src="assets/svgs/{{ ticket.priority ? 'solid-flag' : 'flag'}}.svg" 
+                (click)="toggleTicketPriority.emit(ticket.id)"
+            >
+        </div>
+    </div>
+</div>

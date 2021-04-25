@@ -6,18 +6,19 @@ import { EffectsModule } from '@ngrx/effects';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { SharedModule } from '../shared/shared.module';
 
+import { dashboardReducer } from './dashboard.reducer';
+import { DashboardEffects } from './dashboard.effects';
 import { DashboardContainer } from './dashboard.container';
 import { DashboardComponent } from './dashboard.component';
 import { TableComponent } from './table/table.component';
-import { dashboardReducer } from './dashboard.reducer';
-
-import { DashboardEffects } from './dashboard.effects';
+import { RowComponent } from './row/row.component';
 
 @NgModule({
     declarations: [
         DashboardContainer,
         DashboardComponent,
-        TableComponent
+        TableComponent,
+        RowComponent
     ],
     imports: [
         CommonModule,

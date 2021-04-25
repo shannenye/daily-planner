@@ -6,47 +6,13 @@
     &__header {
         padding: 0 20px 10px;
         display: flex;
-
-        &-container {
-            width: 100%;
-            overflow: hidden;
-        }
     }
 
     &__container {
         width: 100%;
-        border: solid 1px #ccc;
-        display: block;
-        flex-direction: column;
-        background: white;
-        border-radius: 4px;
         overflow: hidden;
+        border-bottom: solid 1px #ccc;
     }
-
-    &__empty-state {
-        text-align: center;
-        padding: 20px 0;
-        margin: 50px 0;
-        background-color: #b9bec7;
-    }
-
-    &__gif {
-        width: 200px;
-        height: auto;
-        margin: 0 auto;
-        padding-top: 30px;
-        display: flex;
-    }
-}
-
-.row {
-    padding: 0 20px;
-    border-bottom: solid 1px #ccc;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    cursor: grab;
-    background: white;
 
     &__title {
         width: 45%;
@@ -54,14 +20,7 @@
         text-transform: capitalize;
     }
 
-    &__container {
-        width: 55%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    &__section {
+    &__column {
         margin: 0 auto;
         padding: 0 5px;
         text-align: center;
@@ -81,6 +40,35 @@
             -webkit-transform: rotateX(180deg);
             transform: rotateX(180deg);
         }
+
+        &-container {
+            // width: 100%;
+            // border: solid 1px #ccc;
+            // display: block;
+            // flex-direction: column;
+            // background: white;
+            // border-radius: 4px;
+            // overflow: hidden;
+            width: 55%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__empty-state {
+        text-align: center;
+        padding: 20px 0;
+        margin: 50px 0;
+        background-color: #b9bec7;
+    }
+
+    &__gif {
+        width: 200px;
+        height: auto;
+        margin: 0 auto;
+        padding-top: 30px;
+        display: flex;
     }
 }
 

@@ -1,44 +1,23 @@
 <div class="table">
-    <div class="table__header-container">
+    <div class="table__container">
         <div class="table__header">
-            <h2 class="row__title">
+            <h2 class="table__title">
                 issues
             </h2>
-            <div class="row__container">
-                <div class="row__section" *ngFor="let name of columnName" (click)="sortByColumnName.emit(name)">
+            <div class="table__column-container">
+                <div class="table__column" *ngFor="let name of columnName" (click)="sortByColumnName.emit(name)">
                     {{ name }}
-                    <img class="{{ sortBy?.columnName === name && sortBy?.orderBy ? 'row__section--rotate' : '' }}" src="assets/svgs/triangle.svg">
+                    <img class="{{ sortBy?.columnName === name && sortBy?.orderBy ? 'table__column--rotate' : '' }}" src="assets/svgs/triangle.svg">
                 </div>
             </div>
         </div>
     </div>
     <div *ngIf="tickets && tickets.length; else showEmptyState" cdkDropList class="table__container" (cdkDropListDropped)="drop.emit($event)">
-        <div class="row" *ngFor="let ticket of tickets" cdkDrag>
-            <div class="row-placeholder" *cdkDragPlaceholder></div>
-            <div class="row__title">
-                {{ ticket.title }}
-            </div>
-            <div class="row__container">
-                <div class="row__section">
-                    <app-profile-pic [image]="ticket.assignee.profilePic"></app-profile-pic>
-                </div>
-                <div class="row__section">
-                    <span class="row__">{{ ticket.dueDate | date: mediumDate }}</span>
-                </div>
-                <div class="row__section">
-                    <app-text-block
-                        [text]="ticket.stage"
-                    ></app-text-block>
-                </div>
-                <div class="row__section">
-                    <img 
-                        class="svg" 
-                        src="assets/svgs/{{ ticket.priority ? 'solid-flag' : 'flag'}}.svg" 
-                        (click)="toggleTicketPriority.emit(ticket.id)"
-                    >
-                </div>
-            </div>
-        </div>
+        <app-row
+            *ngFor="let ticket of tickets"
+            [ticket]="ticket"
+            (toggleTicketPriority)="toggleTicketPriority.emit($event)"
+        ></app-row>
     </div>
     <ng-template #showEmptyState>
         <div class="table__empty-state">
