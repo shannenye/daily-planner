@@ -12,6 +12,22 @@
 
 -   Project requirements for searching and sorting are supposed to be done locally, therefore you can find the implementation as selectors in the `dashboard.selectors.ts` file
 
+### Features
+
+-   User can sort by assignee by clicking the `Assignee` table header. First click will sort the rows by A -> Z using lastname firstname. Second click will flip the triangle facing down and will sort by Z -> A
+
+-   User can sort by due date by clicking the `Due Date` table header. First click will sort by closest due date -> furthest due date. Second click will flip the triangle facing down and will sort by furthest date -> closest date
+
+-   User can sort by stage by clicking the `Stage` table header. First click will sort alphabetically A -> Z. Second click will flip te triangle facing down and will sort by Z -> A.
+
+-   User can sort by priority by clicking the `Priority` table header. First click will sort by highest priority -> lowest priority. Second click will flip the triangle facing down and will sort by lowest priority -> highest priority.
+
+-   An extra feature is the ability to select/unselect ticket priority by clcking on the ticket's flag svg :)
+
+-   User can drag and drop rows. Rows are contrained to its container
+
+-   Search currently looks for ticket titles. User can search for part of a word or the whole word. For example `final` and `finalize` should both return two results for the ticket titles with the word `finalize`. User may also sort the table columns after the search as well. For best practices, existing sorts are cleared when a search is done. All feature above work after a search is made. Try it out!
+
 ### Extras
 
 -   [] Use an API that supports paging and implement pagination on the table
