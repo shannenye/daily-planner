@@ -1,0 +1,8 @@
+deploy:
+    provider: heroku:git
+    api_key: $HEROKU_API_KEY
+    edge: true
+    app: shannen-daily-planner
+    on:
+        branch: main
+    strategy: git
