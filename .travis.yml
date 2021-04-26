@@ -1,6 +1,9 @@
 language: node_js
 node_js:
     - 12
+dist: xenial
+addons:
+    chrome: stable
 before_install:
     - npm install -g @angular/cli
     - export CHROME_BIN=chromium-browser
