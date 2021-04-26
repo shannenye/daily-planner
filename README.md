@@ -30,13 +30,15 @@
 
 -   Search currently looks for ticket titles. User can search for part of a word or the whole word. For example `final` and `finalize` should both return two results for the ticket titles with the word `finalize`. User may also sort the table columns after the search as well and toggle priority too! For best practices, existing sorts are cleared when a search is entered. To clear the search and get back the default state of tickets, delete the search and press enter just like normal site searches. Try it out!
 
+-   The main branch is hooked up with Travis CI and deployed automatically to heroku. Branching off of `main` and creating a Pull Request will also run a travis build to check if the branch is error-free. Unfortunately I was not able to configure travis to pass the build but it is still integrated with the repo. I have not previously done a continuous deployment with a CI server so I thought I would give it a try. I believe the issue is in the `.travis.yml` file and the instructions on there.
+
 ### Extras
 
 -   [] Use an API that supports paging and implement pagination on the table
 
 -   [x] Style up the table with SCSS to make it look pretty
 
--   [] Setup continuous deployment of the app with a CI server
+-   [x] Setup continuous deployment of the app with a CI server
 
 -   [] Manually resize the columns with the mouse
 

@@ -1,6 +1,16 @@
 language: node_js
 node_js:
-    - node
+    - 12
+dist: xenial
+addons:
+    chrome: stable
+services:
+    - xvfb
+before_install:
+    - npm install -g @angular/cli
+    - export CHROME_BIN=chromium-browser
+    - export DISPLAY=:99.0
+install: npm install
 deploy:
     provider: heroku:git
     api_key:
