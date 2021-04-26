@@ -1,5 +1,7 @@
 # DailyPlanner
 
+[Link to Deployed Project](https://shannen-daily-planner.herokuapp.com/)
+
 <img src="https://github.com/shannenye/daily-planner/blob/main/src/assets/gifs/demo-mini.gif" width="600" height="auto" />
 
 -   This project uses lazy loading for modules. By default NgModules are eager loaded which can cause large bundle sizes and load times. As this is a small project eager loading would normally be fine. However in the long run and in the real world there can be hundreds of rows which would negatively effect this app. Documentation for lazy loading can be found on the [Angular Docs](https://angular.io/guide/lazy-loading-ngmodules)
